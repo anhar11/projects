@@ -21,6 +21,20 @@ function query(SQL, args, callback) {
   });
 }
 
+
+router.get('/students', function (req, res, next) {
+  var SQL = "SELECT * FROM Students";
+  query(SQL, [], function (err, result) {
+    if (err)
+      return next(err);
+    res.render('students', {
+      students: result.rows,
+      title: "Students Page"
+    })
+  });
+
+})
+
 router.post('/addStudent', function (req, res, next) {
   var firstName = req.body.firstName;
   var lastName = req.body.lastName;

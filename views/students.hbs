@@ -1,0 +1,23 @@
+<div class="container">
+
+    <table class="table table-hover">
+        <caption>{{title}}</caption>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each students}}
+            <tr>
+                <td>{{firstname}}</td>
+                <td>{{lastname}}</td>
+                <td>{{email}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+</div>
