@@ -22,6 +22,37 @@ function query(SQL, args, callback) {
 }
 
 
+//edit?id=2
+router.get('/edit', function (req, res, next) {
+  var id = req.query.id; //-1 OR 1=1;DROP TABLE Students;
+  var SQL = "SELECT * FROM Students WHERE id = $1";
+  query(SQL, [id], function (err, result) {
+    if (err) return next(err);
+    res.render('editStudent', {
+      title: "Edit Student",
+      student: result.rows[0]
+    })
+  })
+});
+
+
+router.post('/edit', function (req, res, next) {
+  var id = req.body.id;
+  var firstName = req.body.firstName;
+  var lastName = req.body.lastName;
+  var email = req.body.email;
+
+  var SQL = "UPDATE Students SET firstName = $1, lastName = $2, email = $3 WHERE id = $4";
+  query(SQL, [firstName, lastName, email, id], function (err, result) {
+    if (err) return next(err);
+    res.render('editStudent', {
+      title: "Saved!",
+      student: result.rows[0]
+    })
+  })
+});
+
+
 router.get('/students', function (req, res, next) {
   var SQL = "SELECT * FROM Students";
   query(SQL, [], function (err, result) {
