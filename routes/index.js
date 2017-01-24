@@ -82,6 +82,25 @@ router.post('/addStudent', function (req, res, next) {
 });
 
 
+router.post('/delete', function (req, res, next) {
+  var id = req.body.id;
+  var SQL = "DELETE FROM Students WHERE id = $1";
+  query(SQL, [id], function (err, result) {
+    if (err) {
+      return res.json({
+        success: false,
+        err: err
+      });
+    }
+
+    res.json({
+      success: true,
+      err: err
+    })
+  });
+});
+
+
 router.get('/addStudent', function (req, res, next) {
   res.render('addStudent', {
     title: "Add Student"
