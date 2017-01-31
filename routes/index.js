@@ -65,6 +65,14 @@ router.get('/students', function (req, res, next) {
   });
 })
 
+
+router.get('/movie', function (req, res, next) {
+  res.render('movie', {
+    layout: false
+  });
+});
+
+
 router.post('/addStudent', function (req, res, next) {
   var firstName = req.body.firstName;
   var lastName = req.body.lastName;

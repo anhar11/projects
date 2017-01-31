@@ -26,13 +26,10 @@ $('#deleteStudent').click(function () {
     })
 });
 
-
+ 
 
 $('#sendRequest').click(function () {
-    $.post('/requestDemo', {
-        name: 'tomer',
-        id: 32
-    }, function (data) {
-        console.log(data);
-    });
+   $.get('/movie', function(data){
+       console.log(data);
+   })
 })
