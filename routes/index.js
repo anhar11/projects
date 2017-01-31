@@ -63,7 +63,6 @@ router.get('/students', function (req, res, next) {
       title: "Students Page"
     })
   });
-
 })
 
 router.post('/addStudent', function (req, res, next) {
@@ -114,4 +113,15 @@ router.get('/', function (req, res, next) {
   });
 });
 
+
+
+router.post('/requestDemo', function (req, res, next) {
+  var name = req.body.name;
+  var id = req.body.id;
+  //
+  res.json({
+    success: true,
+    name: name
+  });
+})
 module.exports = router;
