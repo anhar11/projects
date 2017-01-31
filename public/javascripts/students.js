@@ -8,6 +8,8 @@ $('#modal-id').on('show.bs.modal', function (event) {
     mod.setAttribute('data-studentid', studentId);
 });
 
+
+
 $('#deleteStudent').click(function () {
     var modal = document.getElementById('modal-id');
     var studentId = modal.getAttribute('data-studentid');
