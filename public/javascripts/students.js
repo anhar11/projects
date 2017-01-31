@@ -30,6 +30,6 @@ $('#deleteStudent').click(function () {
 
 $('#sendRequest').click(function () {
    $.get('/movie', function(data){
-       console.log(data);
+       $('.ajaxcontainer').html(data);
    })
 })
